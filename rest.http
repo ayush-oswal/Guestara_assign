@@ -1,0 +1,242 @@
+
+
+GET http://localhost:3000
+
+### Create a Category
+POST http://localhost:3000/category/create
+Content-Type: application/json
+
+{
+  "name": "Electronics",
+  "image": "http://example.com/electronics.jpg",
+  "description": "Various electronic gadgets and devices.",
+  "taxApplicable": true,
+  "tax": 15,
+  "taxType": "percentage"
+}
+
+### Create another Category
+POST http://localhost:3000/category/create
+Content-Type: application/json
+
+{
+  "name": "Books",
+  "image": "http://example.com/books.jpg",
+  "description": "A variety of books and literature.",
+  "taxApplicable": false
+}
+
+### Create a New Category for Additional Testing
+POST http://localhost:3000/category/create
+Content-Type: application/json
+
+{
+  "name": "Clothing",
+  "image": "http://example.com/clothing.jpg",
+  "description": "Fashionable clothing and accessories.",
+  "taxApplicable": true,
+  "tax": 10
+}
+
+### Get All Categories
+GET http://localhost:3000/category/get
+
+### Get Category by ID
+GET http://localhost:3000/category/get/1
+
+### Get Category by Name
+GET http://localhost:3000/category/get/Electronics
+
+### Update a Category
+PUT http://localhost:3000/category/update/1
+Content-Type: application/json
+
+{
+  "name": "Electronics & Gadgets",
+  "image": "http://example.com/electronics_updated.jpg",
+  "description": "Updated description for electronics.",
+  "taxApplicable": true,
+  "tax": 18,
+  "taxType": "percentage"
+}
+
+### Create a Subcategory in Electronics
+POST http://localhost:3000/subCategory/create
+Content-Type: application/json
+
+{
+  "name": "MobilePhones",
+  "image": "http://example.com/mobile_phones.jpg",
+  "description": "Smartphones and accessories.",
+  "taxApplicable": true,
+  "tax": 15,
+  "categoryId": 1
+}
+
+### Create another Subcategory in Electronics
+POST http://localhost:3000/subCategory/create
+Content-Type: application/json
+
+{
+  "name": "Laptops",
+  "image": "http://example.com/laptops.jpg",
+  "description": "Various models of laptops.",
+  "taxApplicable": true,
+  "tax": 15,
+  "categoryId": 1
+}
+
+### Create a Subcategory in Books
+POST http://localhost:3000/subCategory/create
+Content-Type: application/json
+
+{
+  "name": "Fiction",
+  "image": "http://example.com/fiction.jpg",
+  "description": "Fictional books and novels.",
+  "taxApplicable": false,
+  "categoryId": 2
+}
+
+### Create another Subcategory in Clothing
+POST http://localhost:3000/subCategory/create
+Content-Type: application/json
+
+{
+  "name": "Men's Wear",
+  "image": "http://example.com/mens_wear.jpg",
+  "description": "Clothing for men.",
+  "taxApplicable": true,
+  "tax": 10,
+  "categoryId": 3
+}
+
+### Get All Subcategories
+GET http://localhost:3000/subCategory/get
+
+### Get Subcategories by Category ID
+GET http://localhost:3000/subCategory/get/byCategories/1
+
+### Get Subcategories by Category ID
+GET http://localhost:3000/subCategory/get/byCategories/2
+
+
+###
+GET http://localhost:3000/subCategory/get/byCategories/3
+
+### Get Subcategory by ID
+GET http://localhost:3000/subCategory/get/1
+
+### Get Subcategory by Name
+GET http://localhost:3000/subCategory/get/MobilePhones
+
+### Update a Subcategory
+PUT http://localhost:3000/subCategory/update/1
+Content-Type: application/json
+
+{
+  "name": "Smartphones",
+  "image": "http://example.com/smartphones_updated.jpg",
+  "description": "Updated description for smartphones.",
+  "taxApplicable": true,
+  "tax": 18,
+  "categoryId": 1
+}
+
+### Create an Item in Electronics (no subcategory)
+POST http://localhost:3000/item/create
+Content-Type: application/json
+
+{
+  "name": "Sony Headphones",
+  "image": "http://example.com/sony_headphones.jpg",
+  "description": "High-quality noise-cancelling headphones.",
+  "taxApplicable": true,
+  "tax": 15,
+  "baseAmount": 299,
+  "discount": 50,
+  "categoryId": 1
+}
+
+### Create an Item in MobilePhones Subcategory
+POST http://localhost:3000/item/create
+Content-Type: application/json
+
+{
+  "name": "iPhone 14",
+  "image": "http://example.com/iphone_14.jpg",
+  "description": "Latest iPhone model.",
+  "taxApplicable": true,
+  "tax": 15,
+  "baseAmount": 999,
+  "discount": 100,
+  "categoryId": 1,
+  "subCategoryId": 1
+}
+
+### Create an Item in Laptops Subcategory
+POST http://localhost:3000/item/create
+Content-Type: application/json
+
+{
+  "name": "Dell XPS 13",
+  "image": "http://example.com/dell_xps_13.jpg",
+  "description": "High-end laptop from Dell.",
+  "taxApplicable": true,
+  "tax": 15,
+  "baseAmount": 1199,
+  "categoryId": 1,
+  "subCategoryId": 2
+}
+
+### Create an Item in Fiction Subcategory
+POST http://localhost:3000/item/create
+Content-Type: application/json
+
+{
+  "name": "The Great Gatsby",
+  "image": "http://example.com/great_gatsby.jpg",
+  "description": "A classic novel by F. Scott Fitzgerald.",
+  "taxApplicable": false,
+  "baseAmount": 19.99,
+  "categoryId": 2,
+  "subCategoryId": 3
+}
+
+### Get All Items
+GET http://localhost:3000/item/get
+
+### Get Items by Category ID
+GET http://localhost:3000/item/category/1
+
+### Get Items by Subcategory ID
+GET http://localhost:3000/item/subcategory/1
+
+###
+GET http://localhost:3000/item/subcategory/2
+
+###
+GET http://localhost:3000/item/subcategory/3
+
+### Get Item by ID or Name
+GET http://localhost:3000/item/get/1
+
+### Search Items by Name
+GET http://localhost:3000/item/search/iPhone
+
+### Update an Item
+PUT http://localhost:3000/item/update/1
+Content-Type: application/json
+
+{
+  "name": "iPhone 14 Pro",
+  "image": "http://example.com/iphone_14_pro.jpg",
+  "description": "Updated iPhone model.",
+  "taxApplicable": true,
+  "tax": 18,
+  "baseAmount": 1099,
+  "discount": 150,
+  "categoryId": 1,
+  "subCategoryId": 1
+}
+

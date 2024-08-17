@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // You can change this to match your chosen database, e.g., mysql, sqlite, etc.
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id              Int            @id @default(autoincrement())
+  name            String         @unique
+  image           String?
+  description     String?
+  taxApplicable   Boolean
+  tax             Float?
+  taxType         String?
+  subCategories   SubCategory[]  // One-to-many relation with SubCategory
+  items           Item[]         // One-to-many relation with Item
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model SubCategory {
+  id              Int            @id @default(autoincrement())
+  name            String         @unique //to enable search by name
+  image           String?
+  description     String?
+  taxApplicable   Boolean        @default(false)
+  tax             Float?
+  categoryId      Int            // Foreign key to Category
+  category        Category       @relation(fields: [categoryId], references: [id])
+  items           Item[]         // One-to-many relation with Item
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@unique([name, categoryId]) // Unique name per category
+}
+
+model Item {
+  id              Int            @id @default(autoincrement())
+  name            String         @unique //to enable search by name
+  image           String?
+  description     String?
+  taxApplicable   Boolean
+  tax             Float?
+  baseAmount      Float
+  discount        Float           @default(0)
+  totalAmount     Float           @default(0)
+  categoryId      Int             // Foreign key to Category
+  subCategoryId   Int?            // Foreign key to SubCategory (optional)
+  category        Category        @relation(fields: [categoryId], references: [id])
+  subCategory     SubCategory?    @relation(fields: [subCategoryId], references: [id])
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  
+  @@unique([name, categoryId, subCategoryId]) // Unique name per category and optional sub-category
+}
