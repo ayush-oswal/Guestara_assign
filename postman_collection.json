@@ -1,0 +1,556 @@
+{
+    "info": {
+      "name": "Localhost API Collection",
+      "description": "Collection of API requests for testing localhost server.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create a Category - Electronics",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Electronics\",\"image\":\"http://example.com/electronics.jpg\",\"description\":\"Various electronic gadgets and devices.\",\"taxApplicable\":true,\"tax\":15,\"taxType\":\"percentage\"}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/category/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create a Category - Books",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Books\",\"image\":\"http://example.com/books.jpg\",\"description\":\"A variety of books and literature.\",\"taxApplicable\":false}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/category/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create a Category - Clothing",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Clothing\",\"image\":\"http://example.com/clothing.jpg\",\"description\":\"Fashionable clothing and accessories.\",\"taxApplicable\":true,\"tax\":10}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/category/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "create"]
+          }
+        }
+      },
+      {
+        "name": "Get All Categories",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/category/get",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "get"]
+          }
+        }
+      },
+      {
+        "name": "Get Category by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/category/get/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "get", "1"]
+          }
+        }
+      },
+      {
+        "name": "Get Category by Name - Electronics",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/category/get/Electronics",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "get", "Electronics"]
+          }
+        }
+      },
+      {
+        "name": "Update a Category - Electronics",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Electronics & Gadgets\",\"image\":\"http://example.com/electronics_updated.jpg\",\"description\":\"Updated description for electronics.\",\"taxApplicable\":true,\"tax\":18,\"taxType\":\"percentage\"}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/category/update/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["category", "update", "1"]
+          }
+        }
+      },
+      {
+        "name": "Create a Subcategory in Electronics - MobilePhones",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"MobilePhones\",\"image\":\"http://example.com/mobile_phones.jpg\",\"description\":\"Smartphones and accessories.\",\"taxApplicable\":true,\"tax\":15,\"categoryId\":1}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/subCategory/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create a Subcategory in Electronics - Laptops",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Laptops\",\"image\":\"http://example.com/laptops.jpg\",\"description\":\"Various models of laptops.\",\"taxApplicable\":true,\"tax\":15,\"categoryId\":1}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/subCategory/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create a Subcategory in Books - Fiction",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Fiction\",\"image\":\"http://example.com/fiction.jpg\",\"description\":\"Fictional books and novels.\",\"taxApplicable\":false,\"categoryId\":2}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/subCategory/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create a Subcategory in Clothing - Men's Wear",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Men's Wear\",\"image\":\"http://example.com/mens_wear.jpg\",\"description\":\"Clothing for men.\",\"taxApplicable\":true,\"tax\":10,\"categoryId\":3}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/subCategory/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "create"]
+          }
+        }
+      },
+      {
+        "name": "Get All Subcategories",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/subCategory/get",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "get"]
+          }
+        }
+      },
+      {
+        "name": "Get Subcategories by Category ID - 1",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/subCategory/get/byCategories/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "get", "byCategories", "1"]
+          }
+        }
+      },
+      {
+        "name": "Get Subcategories by Category ID - 2",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/subCategory/get/byCategories/2",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "get", "byCategories", "2"]
+          }
+        }
+      },
+      {
+        "name": "Get Subcategories by Category ID - 3",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/subCategory/get/byCategories/3",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "get", "byCategories", "3"]
+          }
+        }
+      },
+      {
+        "name": "Get Subcategory by ID - 1",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/subCategory/get/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "get", "1"]
+          }
+        }
+      },
+      {
+        "name": "Get Subcategory by Name - MobilePhones",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/subCategory/get/MobilePhones",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "get", "MobilePhones"]
+          }
+        }
+      },
+      {
+        "name": "Update a Subcategory - MobilePhones",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Smartphones\",\"image\":\"http://example.com/smartphones_updated.jpg\",\"description\":\"Updated description for smartphones.\",\"taxApplicable\":true,\"tax\":18,\"categoryId\":1}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/subCategory/update/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["subCategory", "update", "1"]
+          }
+        }
+      },
+      {
+        "name": "Create an Item in Electronics (no subcategory) - Sony Headphones",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Sony Headphones\",\"image\":\"http://example.com/sony_headphones.jpg\",\"description\":\"High-quality noise-cancelling headphones.\",\"taxApplicable\":true,\"tax\":15,\"baseAmount\":299,\"discount\":50,\"categoryId\":1}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/item/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create an Item in MobilePhones Subcategory - iPhone 14",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"iPhone 14\",\"image\":\"http://example.com/iphone_14.jpg\",\"description\":\"Latest iPhone model.\",\"taxApplicable\":true,\"tax\":15,\"baseAmount\":999,\"discount\":100,\"categoryId\":1,\"subCategoryId\":1}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/item/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create an Item in Laptops Subcategory - Dell XPS 13",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"Dell XPS 13\",\"image\":\"http://example.com/dell_xps_13.jpg\",\"description\":\"High-end laptop from Dell.\",\"taxApplicable\":true,\"tax\":15,\"baseAmount\":1199,\"categoryId\":1,\"subCategoryId\":2}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/item/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "create"]
+          }
+        }
+      },
+      {
+        "name": "Create an Item in Fiction Subcategory - The Great Gatsby",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"The Great Gatsby\",\"image\":\"http://example.com/great_gatsby.jpg\",\"description\":\"A classic novel by F. Scott Fitzgerald.\",\"taxApplicable\":false,\"baseAmount\":19.99,\"categoryId\":2,\"subCategoryId\":3}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/item/create",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "create"]
+          }
+        }
+      },
+      {
+        "name": "Get All Items",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/get",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "get"]
+          }
+        }
+      },
+      {
+        "name": "Get Items by Category ID - 1",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/category/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "category", "1"]
+          }
+        }
+      },
+      {
+        "name": "Get Items by Subcategory ID - 1",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/subcategory/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "subcategory", "1"]
+          }
+        }
+      },
+      {
+        "name": "Get Items by Subcategory ID - 2",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/subcategory/2",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "subcategory", "2"]
+          }
+        }
+      },
+      {
+        "name": "Get Items by Subcategory ID - 3",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/subcategory/3",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "subcategory", "3"]
+          }
+        }
+      },
+      {
+        "name": "Get Item by ID or Name - 1",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/get/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "get", "1"]
+          }
+        }
+      },
+      {
+        "name": "Search Items by Name - iPhone",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/item/search/iPhone",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "search", "iPhone"]
+          }
+        }
+      },
+      {
+        "name": "Update an Item - iPhone 14 Pro",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"name\":\"iPhone 14 Pro\",\"image\":\"http://example.com/iphone_14_pro.jpg\",\"description\":\"Updated iPhone model.\",\"taxApplicable\":true,\"tax\":18,\"baseAmount\":1099,\"discount\":150,\"categoryId\":1,\"subCategoryId\":1}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/item/update/1",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["item", "update", "1"]
+          }
+        }
+      }
+    ]
+  }
+  
